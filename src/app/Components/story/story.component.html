@@ -1,0 +1,13 @@
+<!-- Button to open the pop-up -->
+<button (click)="openPopup()">Open Pop-up</button>
+
+<!-- Pop-up container -->
+<div class="popup-container" [ngClass]="{ 'open': isPopupOpen }">
+  <!-- Pop-up content -->
+  <div class="popup-content">
+    <button class="close-button" (click)="closePopup()">Close</button>
+    <div class="image-container">
+      <img src="https://static01.nyt.com/images/2020/10/29/style/28MOON-01/oakImage-1603985177355-superJumbo.jpg" alt="Image">
+    </div>
+  </div>
+</div>
