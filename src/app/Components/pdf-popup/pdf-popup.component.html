@@ -1,0 +1,18 @@
+<!-- Button to open the pop-up -->
+<button (click)="openPopup()">Open Pop-up</button>
+
+<!-- Pop-up container -->
+<div class="popup-container" [ngClass]="{ 'open': isPopupOpen }">
+  <!-- Pop-up content -->
+  <div class="popup-content">
+    <button class="close-button" (click)="closePopup()">Close</button>
+    <div class="pdf-container">
+      <iframe [src]="pdfUrl" frameborder="0"></iframe>
+      <div class="pagination">
+        <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+        <span>{{ currentPage }}/{{ totalPages }}</span>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+      </div>
+    </div>
+  </div>
+</div>

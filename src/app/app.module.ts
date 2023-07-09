@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import { StoryComponent } from './Components/story/story.component';
+import { PdfPopupComponent } from './Components/pdf-popup/pdf-popup.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { StoryComponent } from './Components/story/story.component';
     NavbarComponent,
     HomeComponent,
     StoryComponent,
+    PdfPopupComponent,
   ],
   imports: [
     BrowserModule,
