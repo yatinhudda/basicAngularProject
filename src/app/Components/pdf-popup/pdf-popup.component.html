@@ -7,12 +7,15 @@
   <div class="popup-content">
     <button class="close-button" (click)="closePopup()">Close</button>
     <div class="pdf-container">
-      <iframe [src]="pdfUrl" frameborder="0"></iframe>
+      <iframe [src]="pdfUrl" type="application/pdf" width="100%" height="100%"></iframe>
       <div class="pagination">
         <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
         <span>{{ currentPage }}/{{ totalPages }}</span>
         <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
       </div>
+    </div>
+    <div class="button-container">
+      <button class="download-button" (click)="downloadPdf()">Download PDF</button>
     </div>
   </div>
 </div>

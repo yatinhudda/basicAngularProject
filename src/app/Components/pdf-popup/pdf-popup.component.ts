@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 
 @Component({
@@ -38,5 +37,9 @@ export class PdfPopupComponent {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
     }
+  }
+
+  downloadPdf() {
+    // Logic to download the PDF file
   }
 }
