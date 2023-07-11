@@ -7,39 +7,34 @@ import { Component } from '@angular/core';
 })
 export class PdfPopupComponent {
   isPopupOpen: boolean = false;
-  pdfUrl: string = '/Users/yatenderkumarhudda/Desktop/Important Documents/Driving Licence Slot Booking Info.pdf'; // Replace with the actual URL or path to your PDF
-  currentPage: number = 1;
-  totalPages: number = 0;
+  pdfData: string = ''; // Base64-encoded PDF data
 
   openPopup() {
     this.isPopupOpen = true;
-    this.loadPdf();
+    this.loadPdfData();
   }
 
   closePopup() {
     this.isPopupOpen = false;
   }
 
-  loadPdf() {
-    // You can use a PDF library (e.g., pdf.js) or an external API to load and render the PDF.
-    // Here, we assume that the PDF is already loaded and the total number of pages is known.
-    // You would need to implement this logic based on your specific requirements.
-    this.totalPages = 10; // Replace with the actual total number of pages in the PDF
-  }
-
-  prevPage() {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-    }
-  }
-
-  nextPage() {
-    if (this.currentPage < this.totalPages) {
-      this.currentPage++;
-    }
-  }
-
-  downloadPdf() {
-    // Logic to download the PDF file
+  loadPdfData() {
+    // Fetch the PDF data from an API or any other source
+    // Replace the below example with the actual way you fetch the PDF data
+    const pdfUrl = '/Users/yatenderkumarhudda/Desktop/Learning/Angular/basicAngularProject/Licence Payment Slip.pdf';
+    debugger;
+    fetch(pdfUrl)
+      .then(response => response.blob())
+      .then(blob => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          const base64data = reader.result as string;
+          this.pdfData = base64data;
+        };
+        reader.readAsDataURL(blob);
+      })
+      .catch(error => {
+        console.error('Error fetching PDF data:', error);
+      });
   }
 }
